@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>P7 - Local Storage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item>
+    <ion-input
+      label="Nama Mahasiswa"
+      label-placement="floating"
+      [(ngModel)]="nama">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      label="Program Studi"
+      label-placement="floating"
+      [(ngModel)]="prodi">
+    </ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="simpan()">
+    Simpan Data
+  </ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let mhs of dataMahasiswa">
+      <ion-label>
+        <h2>{{ mhs.nama }}</h2>
+        <p>{{ mhs.prodi }}</p>
+      </ion-label>
+
+      <!-- ✅ Tombol Hapus (Ikon Tong Sampah) -->
+      <ion-button
+        slot="end"
+        fill="clear"
+        color="danger"
+        (click)="hapus(mhs.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
